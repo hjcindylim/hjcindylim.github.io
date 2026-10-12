@@ -1,34 +1,36 @@
 /* ==========================================================
    Portfolio styles: one file shared by every page.
-   Layout concept: each page reads like a design document:
-   a spec sheet up top, then short sections, top to bottom.
    To change a color or font everywhere, edit the tokens below.
    ========================================================== */
 
+/* Layout concept: each page reads like a design document:
+   a spec sheet up top, then short sections, top to bottom.
+   Palette: plum. Type: Literata headings, Instrument Sans body. */
+
 :root {
   /* Color (light theme) */
-  --paper: #fafbfa;        /* page background */
-  --surface: #eef3f1;      /* panels and spec sheets */
-  --ink: #15211f;          /* main text */
-  --muted: #4d5d59;        /* secondary text */
-  --rule: #d5dfdc;         /* lines and borders */
-  --accent: #0b6e66;       /* links, highlights */
+  --paper: #fbfafc;        /* page background */
+  --surface: #f3eef4;      /* panels and spec sheets */
+  --ink: #221a26;          /* main text */
+  --muted: #5e5263;        /* secondary text */
+  --rule: #e2d9e4;         /* lines and borders */
+  --accent: #6b2c6e;       /* deep plum: links and highlights */
   --accent-ink: #ffffff;   /* text on accent */
-  --signal: #c98a12;       /* "in progress" markers */
+  --signal: #6b2c6e;       /* small markers */
   --todo-bg: #fff4d6;      /* to-do boxes (delete these before publishing) */
   --todo-border: #e0a526;
   --stage: #2b2e30;        /* background behind 3D model screenshots */
   --sheet: #ffffff;        /* backdrop behind slide and workbook images */
 
   /* Type */
-  --font-display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
-  --font-body: "Atkinson Hyperlegible", "Segoe UI", system-ui, sans-serif;
-  --font-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  --font-display: "Literata", Georgia, "Times New Roman", serif;
+  --font-body: "Instrument Sans", "Segoe UI", system-ui, sans-serif;
+  --font-label: "Instrument Sans", "Segoe UI", system-ui, sans-serif;
 
   --step-0: 1.0625rem;  /* body, 17px */
   --step-1: 1.25rem;
-  --step-2: 1.6rem;
-  --step-3: clamp(2.1rem, 1.4rem + 3vw, 3.4rem);
+  --step-2: 1.65rem;
+  --step-3: clamp(2.1rem, 1.4rem + 3vw, 3.3rem);
   --label: 0.78rem;
 
   --measure: 40rem;     /* comfortable line length for paragraphs */
@@ -38,33 +40,35 @@
 
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --paper: #0f1716;
-    --surface: #17221f;
-    --ink: #e3ebe9;
-    --muted: #9fb0ac;
-    --rule: #2a3834;
-    --accent: #5ec7ba;
-    --accent-ink: #0f1716;
-    --signal: #f0b443;
+    --paper: #17121a;
+    --surface: #221a26;
+    --ink: #efe8f1;
+    --muted: #b3a6b7;
+    --rule: #3a2f3e;
+    --accent: #c3a3dc;
+    --accent-ink: #17121a;
+    --signal: #c3a3dc;
     --todo-bg: #33290f;
     --todo-border: #a8791a;
     --stage: #2b2e30;
+    --sheet: #ffffff;
     color-scheme: dark;
   }
 }
 
 :root[data-theme="dark"] {
-  --paper: #0f1716;
-  --surface: #17221f;
-  --ink: #e3ebe9;
-  --muted: #9fb0ac;
-  --rule: #2a3834;
-  --accent: #5ec7ba;
-  --accent-ink: #0f1716;
-  --signal: #f0b443;
+  --paper: #17121a;
+  --surface: #221a26;
+  --ink: #efe8f1;
+  --muted: #b3a6b7;
+  --rule: #3a2f3e;
+  --accent: #c3a3dc;
+  --accent-ink: #17121a;
+  --signal: #c3a3dc;
   --todo-bg: #33290f;
   --todo-border: #a8791a;
   --stage: #2b2e30;
+  --sheet: #ffffff;
   color-scheme: dark;
 }
 
@@ -91,17 +95,17 @@ a:hover { text-decoration-thickness: 2px; }
 
 h1, h2, h3 {
   font-family: var(--font-display);
-  line-height: 1.12;
+  line-height: 1.15;
   text-wrap: balance;
   margin: 0;
 }
-h1 { font-size: var(--step-3); font-weight: 750; letter-spacing: -0.02em; }
-h2 { font-size: var(--step-2); font-weight: 700; letter-spacing: -0.01em; }
-h3 { font-size: var(--step-1); font-weight: 650; }
+h1 { font-size: var(--step-3); font-weight: 500; letter-spacing: -0.01em; }
+h2 { font-size: var(--step-2); font-weight: 500; }
+h3 { font-size: var(--step-1); font-weight: 550; }
 p { margin: 0; }
 
 .label {
-  font-family: var(--font-mono);
+  font-family: var(--font-label);
   font-size: var(--label);
   font-weight: 500;
   letter-spacing: 0.06em;
@@ -140,7 +144,7 @@ p { margin: 0; }
 }
 .site-name {
   font-family: var(--font-display);
-  font-weight: 700;
+  font-weight: 600;
   font-size: 1.15rem;
   color: var(--ink);
   text-decoration: none;
@@ -194,7 +198,7 @@ main { display: block; }
   padding: 0;
 }
 .focus-list li {
-  font-family: var(--font-mono);
+  font-family: var(--font-label);
   font-size: 0.85rem;
   padding: 0.3rem 0.65rem;
   border: 1px solid var(--rule);
@@ -252,7 +256,7 @@ main { display: block; }
   display: inline-flex;
   align-items: center;
   gap: 0.45rem;
-  font-family: var(--font-mono);
+  font-family: var(--font-label);
   font-size: 0.8rem;
   color: var(--muted);
 }
@@ -305,12 +309,12 @@ main { display: block; }
 }
 .path li::before {
   content: counter(step, decimal-leading-zero);
-  font-family: var(--font-mono);
+  font-family: var(--font-label);
   font-size: var(--label);
   color: var(--accent);
   font-weight: 500;
 }
-.path strong { font-family: var(--font-display); font-weight: 650; }
+.path strong { font-family: var(--font-display); font-weight: 550; }
 .path span { color: var(--muted); font-size: 0.9rem; }
 .path li.later { border-style: dashed; }
 
@@ -383,7 +387,7 @@ figcaption { color: var(--muted); font-size: 0.92rem; max-width: var(--measure);
   line-height: 1.35;
 }
 .gallery figcaption .num {
-  font-family: var(--font-mono);
+  font-family: var(--font-label);
   font-size: 0.8rem;
   color: var(--muted);
   font-variant-numeric: tabular-nums;
@@ -394,7 +398,7 @@ figcaption { color: var(--muted); font-size: 0.92rem; max-width: var(--measure);
 table { border-collapse: collapse; width: 100%; min-width: 34rem; font-size: 0.97rem; }
 th, td { text-align: left; vertical-align: top; padding: 0.7rem 0.9rem 0.7rem 0; border-top: 1px solid var(--rule); }
 thead th {
-  font-family: var(--font-mono);
+  font-family: var(--font-label);
   font-size: var(--label);
   font-weight: 500;
   letter-spacing: 0.06em;
@@ -410,7 +414,7 @@ td:first-child { font-weight: 700; }
 .bars { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.75rem; max-width: 46rem; }
 .bars li { display: grid; gap: 0.3rem; }
 .bars .row { display: flex; justify-content: space-between; gap: 1rem; }
-.bars .count { font-family: var(--font-mono); font-size: 0.85rem; color: var(--muted); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.bars .count { font-family: var(--font-label); font-size: 0.85rem; color: var(--muted); font-variant-numeric: tabular-nums; white-space: nowrap; }
 .bars .track { height: 0.6rem; background: var(--surface); border-radius: 2px; overflow: hidden; }
 .bars .fill { height: 100%; background: var(--accent); }
 .bars .quote { color: var(--muted); font-size: 0.92rem; font-style: italic; }
@@ -451,7 +455,7 @@ td:first-child { font-weight: 700; }
   padding-block: 1rem;
   border-top: 1px solid var(--rule);
 }
-.timeline .years { font-family: var(--font-mono); font-size: 0.85rem; color: var(--muted); font-variant-numeric: tabular-nums; }
+.timeline .years { font-family: var(--font-label); font-size: 0.85rem; color: var(--muted); font-variant-numeric: tabular-nums; }
 .timeline .role { font-weight: 700; }
 .facts { display: grid; gap: 2rem; align-content: start; }
 .facts ul { margin: 0; padding-left: 1.1rem; display: grid; gap: 0.35rem; }
