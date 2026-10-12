@@ -1,0 +1,422 @@
+/* ==========================================================
+   Portfolio styles: one file shared by every page.
+   Layout concept: each page reads like a design document:
+   a spec sheet up top, then short sections, top to bottom.
+   To change a color or font everywhere, edit the tokens below.
+   ========================================================== */
+
+:root {
+  /* Color (light theme) */
+  --paper: #fafbfa;        /* page background */
+  --surface: #eef3f1;      /* panels and spec sheets */
+  --ink: #15211f;          /* main text */
+  --muted: #4d5d59;        /* secondary text */
+  --rule: #d5dfdc;         /* lines and borders */
+  --accent: #0b6e66;       /* links, highlights */
+  --accent-ink: #ffffff;   /* text on accent */
+  --signal: #c98a12;       /* "in progress" markers */
+  --todo-bg: #fff4d6;      /* to-do boxes (delete these before publishing) */
+  --todo-border: #e0a526;
+  --stage: #2b2e30;        /* background behind 3D model screenshots */
+  --sheet: #ffffff;        /* backdrop behind slide and workbook images */
+
+  /* Type */
+  --font-display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --font-body: "Atkinson Hyperlegible", "Segoe UI", system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+
+  --step-0: 1.0625rem;  /* body, 17px */
+  --step-1: 1.25rem;
+  --step-2: 1.6rem;
+  --step-3: clamp(2.1rem, 1.4rem + 3vw, 3.4rem);
+  --label: 0.78rem;
+
+  --measure: 40rem;     /* comfortable line length for paragraphs */
+  --page: 72rem;        /* widest the content gets */
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #0f1716;
+    --surface: #17221f;
+    --ink: #e3ebe9;
+    --muted: #9fb0ac;
+    --rule: #2a3834;
+    --accent: #5ec7ba;
+    --accent-ink: #0f1716;
+    --signal: #f0b443;
+    --todo-bg: #33290f;
+    --todo-border: #a8791a;
+    --stage: #2b2e30;
+    color-scheme: dark;
+  }
+}
+
+:root[data-theme="dark"] {
+  --paper: #0f1716;
+  --surface: #17221f;
+  --ink: #e3ebe9;
+  --muted: #9fb0ac;
+  --rule: #2a3834;
+  --accent: #5ec7ba;
+  --accent-ink: #0f1716;
+  --signal: #f0b443;
+  --todo-bg: #33290f;
+  --todo-border: #a8791a;
+  --stage: #2b2e30;
+  color-scheme: dark;
+}
+
+/* ---------- Base ---------- */
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: var(--step-0);
+  line-height: 1.6;
+}
+
+img { max-width: 100%; height: auto; display: block; }
+
+a { color: var(--accent); text-underline-offset: 0.18em; text-decoration-thickness: 1px; }
+a:hover { text-decoration-thickness: 2px; }
+:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
+
+h1, h2, h3 {
+  font-family: var(--font-display);
+  line-height: 1.12;
+  text-wrap: balance;
+  margin: 0;
+}
+h1 { font-size: var(--step-3); font-weight: 750; letter-spacing: -0.02em; }
+h2 { font-size: var(--step-2); font-weight: 700; letter-spacing: -0.01em; }
+h3 { font-size: var(--step-1); font-weight: 650; }
+p { margin: 0; }
+
+.label {
+  font-family: var(--font-mono);
+  font-size: var(--label);
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: -4rem;
+  background: var(--accent);
+  color: var(--accent-ink);
+  padding: 0.5rem 0.9rem;
+  z-index: 10;
+}
+.skip-link:focus { top: 1rem; }
+
+/* One outer wrapper sets the side gutter for every page */
+.wrap {
+  max-width: var(--page);
+  margin-inline: auto;
+  padding-inline: clamp(1rem, 4vw, 2.5rem);
+}
+
+/* ---------- Header and footer ---------- */
+
+.site-header .wrap {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.75rem 2rem;
+  padding-block: 1.5rem;
+  border-bottom: 1px solid var(--rule);
+}
+.site-name {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.15rem;
+  color: var(--ink);
+  text-decoration: none;
+}
+.site-nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1.5rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.site-nav a { color: var(--ink); text-decoration: none; }
+.site-nav a:hover, .site-nav a[aria-current="page"] {
+  text-decoration: underline;
+  text-decoration-color: var(--accent);
+  text-decoration-thickness: 2px;
+}
+
+.site-footer .wrap {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 1rem 2rem;
+  padding-block: 2.5rem 3rem;
+  border-top: 1px solid var(--rule);
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+.site-footer address { font-style: normal; display: grid; gap: 0.25rem; }
+
+main { display: block; }
+
+/* Vertical rhythm between page sections */
+.page { display: grid; gap: clamp(3rem, 7vw, 5rem); padding-block: clamp(2.5rem, 6vw, 4.5rem); }
+.section { display: grid; gap: 1.25rem; }
+.section > p, .prose p { max-width: var(--measure); }
+.prose { display: grid; gap: 1rem; }
+
+/* ---------- Home ---------- */
+
+.intro { display: grid; gap: 1.5rem; }
+.intro .lead { font-size: var(--step-1); line-height: 1.5; max-width: 42rem; }
+
+.focus-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.focus-list li {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  padding: 0.3rem 0.65rem;
+  border: 1px solid var(--rule);
+  border-radius: 2px;
+  background: var(--surface);
+}
+
+.contact-links { display: flex; flex-wrap: wrap; gap: 0.5rem 1.5rem; }
+
+/* Featured project: text beside a picture, stacked on phones */
+.featured {
+  display: grid;
+  gap: 1.5rem;
+  align-items: center;
+  padding-top: 1.5rem;
+  border-top: 2px solid var(--ink);
+}
+.featured > * { min-width: 0; }
+.featured .text { display: grid; gap: 0.85rem; }
+.featured h3 { font-size: var(--step-2); }
+.featured h3 a { color: var(--ink); text-decoration: none; }
+.featured h3 a:hover { text-decoration: underline; text-decoration-color: var(--accent); }
+.featured .shot {
+  background: var(--stage);
+  border-radius: 4px;
+  overflow: hidden;
+}
+.featured .shot img { width: 100%; aspect-ratio: 4 / 3; object-fit: contain; }
+@media (min-width: 52rem) {
+  .featured { grid-template-columns: 1fr 1fr; gap: 3rem; }
+}
+
+.read-more { font-weight: 700; }
+
+/* Other projects: one row each, same layout every time */
+.work-list { list-style: none; margin: 0; padding: 0; display: grid; }
+.work-list li {
+  display: grid;
+  gap: 0.4rem 2rem;
+  padding-block: 1.25rem;
+  border-top: 1px solid var(--rule);
+}
+.work-list li > * { min-width: 0; }
+.work-list h3 { font-size: 1.15rem; }
+.work-list p { max-width: var(--measure); }
+.work-list .meta { color: var(--muted); font-size: 0.95rem; }
+@media (min-width: 52rem) {
+  .work-list li { grid-template-columns: 14rem 1fr; }
+  .work-list .label { padding-top: 0.25rem; }
+  .work-list .body { display: grid; gap: 0.4rem; }
+}
+.status {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+.status::before {
+  content: "";
+  width: 0.55rem;
+  height: 0.55rem;
+  border-radius: 50%;
+  background: var(--signal);
+}
+
+/* ---------- Case study pages ---------- */
+
+.back { font-size: 0.95rem; }
+.case-head { display: grid; gap: 1rem; }
+.case-head .lead { font-size: var(--step-1); line-height: 1.5; max-width: 44rem; }
+
+/* Spec sheet: the facts a hiring manager scans first */
+.spec {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+  gap: 1.25rem 2rem;
+  margin: 0;
+  padding: 1.5rem;
+  background: var(--surface);
+  border-radius: 4px;
+}
+.spec div { display: grid; gap: 0.3rem; align-content: start; min-width: 0; }
+.spec dd { margin: 0; }
+
+/* Learner path: a real sequence, so it is numbered */
+.path {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(9.5rem, 1fr));
+  gap: 0.75rem;
+  counter-reset: step;
+}
+.path li {
+  counter-increment: step;
+  display: grid;
+  gap: 0.2rem;
+  align-content: start;
+  padding: 0.9rem 1rem;
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+  min-width: 0;
+}
+.path li::before {
+  content: counter(step, decimal-leading-zero);
+  font-family: var(--font-mono);
+  font-size: var(--label);
+  color: var(--accent);
+  font-weight: 500;
+}
+.path strong { font-family: var(--font-display); font-weight: 650; }
+.path span { color: var(--muted); font-size: 0.9rem; }
+.path li.later { border-style: dashed; }
+
+.decisions {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(19rem, 1fr));
+  gap: 2rem 2.5rem;
+}
+.decisions article {
+  display: grid;
+  gap: 0.5rem;
+  align-content: start;
+  padding-top: 1rem;
+  border-top: 1px solid var(--rule);
+  min-width: 0;
+}
+
+.checks { margin: 0; padding-left: 1.2rem; display: grid; gap: 0.2rem; }
+
+figure { margin: 0; display: grid; gap: 0.6rem; min-width: 0; }
+figcaption { color: var(--muted); font-size: 0.92rem; max-width: var(--measure); }
+
+.pair {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+  max-width: 34rem;
+}
+.pair img { border-radius: 4px; aspect-ratio: 3 / 4; object-fit: cover; width: 100%; }
+
+.materials {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+  gap: 1.5rem;
+  align-items: start;
+}
+.materials img { border: 1px solid var(--rule); border-radius: 4px; background: var(--sheet); }
+.materials .wide { grid-column: 1 / -1; max-width: 48rem; }
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+.gallery figure {
+  background: var(--stage);
+  border-radius: 4px;
+  overflow: hidden;
+  gap: 0;
+  grid-template-rows: 1fr auto;
+}
+.gallery img { width: 100%; height: 100%; aspect-ratio: 4 / 3; object-fit: contain; }
+/* The first model is shown large: it passes all three checks */
+.gallery figure:first-child { grid-column: span 2; }
+@media (min-width: 52rem) {
+  .gallery { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .gallery figure:first-child { grid-row: span 2; }
+}
+.gallery figcaption {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  padding: 0.6rem 0.8rem;
+  background: var(--surface);
+  color: var(--ink);
+  font-size: 0.9rem;
+  line-height: 1.35;
+}
+.gallery figcaption .num {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+}
+
+/* ---------- About ---------- */
+
+.about-grid { display: grid; gap: 3rem; }
+.about-grid > * { min-width: 0; }
+@media (min-width: 56rem) {
+  .about-grid { grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr); gap: 4rem; }
+}
+.timeline { list-style: none; margin: 0; padding: 0; display: grid; }
+.timeline li {
+  display: grid;
+  gap: 0.2rem;
+  padding-block: 1rem;
+  border-top: 1px solid var(--rule);
+}
+.timeline .years { font-family: var(--font-mono); font-size: 0.85rem; color: var(--muted); font-variant-numeric: tabular-nums; }
+.timeline .role { font-weight: 700; }
+.facts { display: grid; gap: 2rem; align-content: start; }
+.facts ul { margin: 0; padding-left: 1.1rem; display: grid; gap: 0.35rem; }
+
+/* ---------- To-do boxes: delete each one when you've done what it says ---------- */
+
+.todo {
+  display: grid;
+  gap: 0.5rem;
+  padding: 1rem 1.25rem;
+  background: var(--todo-bg);
+  border: 1px dashed var(--todo-border);
+  border-radius: 4px;
+  max-width: 46rem;
+}
+.todo .label { color: var(--ink); }
+.todo ul { margin: 0; padding-left: 1.1rem; display: grid; gap: 0.3rem; }
+
+@media (prefers-reduced-motion: reduce) {
+  * { scroll-behavior: auto !important; transition: none !important; animation: none !important; }
+}

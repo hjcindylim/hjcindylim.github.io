@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Sketch to 3D Print | H. J. (Cindy) Lim</title>
+  <meta name="description" content="Case study: a hands-on AI workshop that takes participants from an idea to a print-ready 3D model.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=IBM+Plex+Mono:wght@400;500&display=swap">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="wrap">
+      <a class="site-name" href="./">H. J. (Cindy) Lim</a>
+      <nav class="site-nav" aria-label="Main">
+        <ul>
+          <li><a href="./">Work</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="resume.pdf">Résumé (PDF)</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- TEMPLATE NOTE: To make another case study, copy this whole file, rename it
+       (for example ai-module.html), and replace the text section by section. -->
+
+  <main id="main">
+    <div class="wrap page">
+
+      <section class="case-head" aria-labelledby="case-title">
+        <p class="back"><a href="./">← All work</a></p>
+        <p class="label">Case study · Workshop design</p>
+        <h1 id="case-title">Sketch to 3D Print</h1>
+        <p class="lead">A hands-on AI workshop where participants turn an idea into a sized, sliced 3D model in one session, ready to print after a makerspace training.</p>
+
+        <dl class="spec">
+          <div><dt class="label">Audience</dt><dd>Students, faculty and staff at Iowa State. No 3D or coding experience needed.</dd></div>
+          <div><dt class="label">Setting</dt><dd>AI Innovation Studio, Student Innovation Center. Part of a five-workshop Applied AI series offered twice each semester.</dd></div>
+          <div><dt class="label">Length</dt><dd>65–75 minutes, in person, on Studio laptops</dd></div>
+          <div><dt class="label">My role</dt><dd>Redesigned the workshop. Built the slide deck, participant workbook and facilitator notes. Facilitate the sessions.</dd></div>
+          <div><dt class="label">Tools</dt><dd>Gemini, Vizcom, Tripo, Bambu Studio, Canvas</dd></div>
+          <div><dt class="label">Year</dt><dd>Fall 2026</dd></div>
+        </dl>
+      </section>
+
+      <section class="section" aria-labelledby="challenge-title">
+        <h2 id="challenge-title">The challenge</h2>
+        <div class="prose">
+          <p>AI tools can turn a picture into a 3D model in minutes, and many of those models won't print. The 3D printing makerspace sees two problems most often with AI-made models: mesh errors, and files with more than a million triangles.</p>
+          <p>Tripo's default setting produces about two million triangles, a file of roughly 100 MB. Participants arrive with no 3D experience, so the workshop has to prevent these problems without teaching 3D modeling.</p>
+        </div>
+        <aside class="todo" aria-label="To do">
+          <p class="label">To do before publishing</p>
+          <ul>
+            <li>Add two or three sentences on the earlier version of this workshop and why you redesigned it.</li>
+          </ul>
+        </aside>
+      </section>
+
+      <section class="section" aria-labelledby="path-title">
+        <h2 id="path-title">The learner path</h2>
+        <p>Participants complete the first five steps in the session. Printing happens after a training at the 3D printing makerspace.</p>
+        <ol class="path">
+          <li><strong>Sketch</strong><span>Paper, Vizcom or words</span></li>
+          <li><strong>Clean image</strong><span>Gemini or Vizcom</span></li>
+          <li><strong>3D model</strong><span>Tripo</span></li>
+          <li><strong>Repair, if needed</strong><span>A free repair website</span></li>
+          <li><strong>Size and slice</strong><span>Bambu Studio</span></li>
+          <li class="later"><strong>Print</strong><span>After a makerspace training</span></li>
+        </ol>
+      </section>
+
+      <section class="section" aria-labelledby="decisions-title">
+        <h2 id="decisions-title">Design decisions</h2>
+
+        <figure>
+          <div class="pair">
+            <img src="images/cat-photo.jpg" width="700" height="933" alt="Photo of a white and ginger cat sitting upright.">
+            <img src="images/cat-print.jpg" width="700" height="901" alt="A white 3D print of the same cat, sitting upright with its tail curled beside it.">
+          </div>
+          <figcaption>The worked example: the photo I started from, and the finished print.</figcaption>
+        </figure>
+
+        <div class="decisions">
+          <article>
+            <h3>One worked example, start to finish</h3>
+            <p>A photo of a cat runs through every step, from the image prompt to the slicer, and ends as a real print. Participants see how short a good idea can be and where it ends up.</p>
+          </article>
+          <article>
+            <h3>Three checks as the quality standard</h3>
+            <ol class="checks">
+              <li>It's one solid piece.</li>
+              <li>It can stand on a flat base.</li>
+              <li>Nothing is thinner than a drinking straw.</li>
+            </ol>
+            <p>The checks steer ideas at the start and come back as a self-check before export. A drinking straw is a size everyone can picture.</p>
+          </article>
+          <article>
+            <h3>Three ways to make the starting image</h3>
+            <p>Participants draw on paper, sketch in Vizcom or describe their idea to Gemini. People who don't draw can still take part, and every route ends with the same kind of saved image.</p>
+          </article>
+          <article>
+            <h3>Settings that prevent the common failure</h3>
+            <p>Texture off, triangle topology, 150,000 polygons. That keeps a file near 7 MB instead of about 100 MB, with all the detail an 80 mm print can show.</p>
+          </article>
+          <article>
+            <h3>A clear finish line for each activity</h3>
+            <p>Every activity ends with a "You're done when" line. Early finishers get "More to try" tasks, so the group moves on together.</p>
+          </article>
+          <article>
+            <h3>Support that outlasts the session</h3>
+            <p>A troubleshooting table covers the failures people hit most, such as iPhone .heic photos and repair timeouts. Facilitator notes are detailed enough for someone else to run the session, and a public Canvas site keeps the materials available afterward.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="materials-title">
+        <h2 id="materials-title">Materials</h2>
+        <p>A 22-slide deck with facilitator notes, and a five-page workbook participants keep open beside their browser.</p>
+        <div class="materials">
+          <figure class="wide">
+            <img src="images/slide-three-routes.jpg" width="1100" height="619" alt="Slide titled Turn your sketch into one clean image, with three columns: Draw it on paper, Sketch it in Vizcom, and Describe it to Gemini, each with short steps. It ends with: You're done when your image is saved in Downloads.">
+            <figcaption>Slide for Activity 1: three routes to the same result, with a clear finish line.</figcaption>
+          </figure>
+          <figure>
+            <img src="images/workbook-page-1.jpg" width="1000" height="1294" alt="Workbook page 1: the six-step path, the three checks for a printable model, examples of ideas that print well and ideas that are tricky, and a box to write the idea in one sentence.">
+            <figcaption>Workbook, page 1: the path, the three checks and the one-sentence idea.</figcaption>
+          </figure>
+          <figure>
+            <img src="images/workbook-page-3.jpg" width="1000" height="1294" alt="Workbook page 3: seven numbered steps for making a model in Tripo, a checklist of the three checks before download, a worked example, and a table for picking a print height.">
+            <figcaption>Workbook, page 3: numbered Tripo steps, the self-check and a worked example.</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="work-title">
+        <h2 id="work-title">Participant work</h2>
+        <p>All five models from one session came out between 126,000 and 142,000 triangles, inside the workbook's 150,000 target.</p>
+        <aside class="todo" aria-label="To do">
+          <p class="label">To do before publishing</p>
+          <ul>
+            <li>Get the Studio's OK to show these models. Participants made them in the Studio's Tripo account.</li>
+            <li>If any were printed, add photos of the prints.</li>
+          </ul>
+        </aside>
+        <div class="gallery">
+          <figure>
+            <img src="images/participant-fire-truck.jpg" width="1198" height="899" alt="Chunky toy fire truck with ladders on its sides, standing on a round base.">
+            <figcaption><span>Fire truck on a round base</span><span class="num">141,482 faces</span></figcaption>
+          </figure>
+          <figure>
+            <img src="images/participant-jet.jpg" width="1070" height="803" alt="Fighter jet mounted on a curved display stand with a flat base.">
+            <figcaption><span>Jet on a display stand</span><span class="num">138,902 faces</span></figcaption>
+          </figure>
+          <figure>
+            <img src="images/participant-locomotive.jpg" width="1134" height="851" alt="Long diesel locomotive seen from the side, with detailed panels, handrails and wheels.">
+            <figcaption><span>Diesel locomotive</span><span class="num">136,408 faces</span></figcaption>
+          </figure>
+          <figure>
+            <img src="images/participant-classic-car.jpg" width="1111" height="834" alt="Classic fastback sports car seen from the rear three-quarter view.">
+            <figcaption><span>Classic sports car</span><span class="num">142,199 faces</span></figcaption>
+          </figure>
+          <figure>
+            <img src="images/participant-rail-vehicle.jpg" width="1200" height="850" alt="Boxy rail work vehicle with a tall cab, side railings and large wheels.">
+            <figcaption><span>Rail work vehicle</span><span class="num">126,657 faces</span></figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="reflection-title">
+        <h2 id="reflection-title">Results and reflection</h2>
+        <div class="prose">
+          <p>Every model met the triangle target, so the settings step works as written.</p>
+          <p>The idea stage needs more support. Four of the five models were vehicles with thin parts, such as handrails, wingtips and mirrors, that could break at 80 mm. In the next run, I plan to check each person's one-sentence idea against the three checks before Step 1.</p>
+        </div>
+        <aside class="todo" aria-label="To do">
+          <p class="label">To do before publishing</p>
+          <ul>
+            <li>Rewrite the two paragraphs above in your own words, and confirm the plan for the next run.</li>
+            <li>Add attendance, and a few answers to the workbook's "Before you leave" questions.</li>
+          </ul>
+        </aside>
+      </section>
+
+      <p><a href="./">← Back to all work</a></p>
+
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <address>
+        <span>Email: <a href="mailto:hjcindylim@gmail.com">hjcindylim@gmail.com</a></span>
+        <span>LinkedIn: <a href="https://www.linkedin.com/in/hj-cindylim">linkedin.com/in/hj-cindylim</a></span>
+      </address>
+      <p>© 2026 H. J. (Cindy) Lim</p>
+    </div>
+  </footer>
+</body>
+</html>
