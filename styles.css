@@ -239,6 +239,8 @@ main { display: block; }
 }
 .work-list li > * { min-width: 0; }
 .work-list h3 { font-size: 1.15rem; }
+.work-list h3 a { color: var(--ink); text-decoration: none; }
+.work-list h3 a:hover { text-decoration: underline; text-decoration-color: var(--accent); }
 .work-list p { max-width: var(--measure); }
 .work-list .meta { color: var(--muted); font-size: 0.95rem; }
 @media (min-width: 52rem) {
@@ -271,7 +273,7 @@ main { display: block; }
 /* Spec sheet: the facts a hiring manager scans first */
 .spec {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr));
   gap: 1.25rem 2rem;
   margin: 0;
   padding: 1.5rem;
@@ -316,6 +318,9 @@ main { display: block; }
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(19rem, 1fr));
   gap: 2rem 2.5rem;
+}
+@media (min-width: 52rem) {
+  .decisions.two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 .decisions article {
   display: grid;
@@ -383,6 +388,54 @@ figcaption { color: var(--muted); font-size: 0.92rem; max-width: var(--measure);
   color: var(--muted);
   font-variant-numeric: tabular-nums;
 }
+
+/* Tables: they scroll sideways on their own if a phone is too narrow */
+.table-wrap { overflow-x: auto; max-width: 100%; }
+table { border-collapse: collapse; width: 100%; min-width: 34rem; font-size: 0.97rem; }
+th, td { text-align: left; vertical-align: top; padding: 0.7rem 0.9rem 0.7rem 0; border-top: 1px solid var(--rule); }
+thead th {
+  font-family: var(--font-mono);
+  font-size: var(--label);
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+  border-top: 0;
+  padding-top: 0;
+}
+td:first-child { font-weight: 700; }
+.num-col { font-variant-numeric: tabular-nums; white-space: nowrap; }
+
+/* Simple bar list for counts out of a small group */
+.bars { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.75rem; max-width: 46rem; }
+.bars li { display: grid; gap: 0.3rem; }
+.bars .row { display: flex; justify-content: space-between; gap: 1rem; }
+.bars .count { font-family: var(--font-mono); font-size: 0.85rem; color: var(--muted); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.bars .track { height: 0.6rem; background: var(--surface); border-radius: 2px; overflow: hidden; }
+.bars .fill { height: 100%; background: var(--accent); }
+.bars .quote { color: var(--muted); font-size: 0.92rem; font-style: italic; }
+
+/* Phone screenshots side by side */
+.phones { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.75rem; max-width: 36rem; }
+.phones img { border-radius: 8px; border: 1px solid var(--rule); width: 100%; }
+
+/* Screens and diagrams from design tools */
+.screen img { border: 1px solid var(--rule); border-radius: 4px; background: var(--sheet); width: 100%; }
+.screens { display: grid; grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr)); gap: 1.5rem; align-items: start; }
+
+/* Three short lists side by side (keep / do more / stop) */
+.trio { display: grid; grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr)); gap: 1.5rem 2rem; }
+.trio > div { display: grid; gap: 0.5rem; align-content: start; padding-top: 0.9rem; border-top: 1px solid var(--rule); min-width: 0; }
+.trio ul { margin: 0; padding-left: 1.1rem; display: grid; gap: 0.35rem; }
+
+.bullets { margin: 0; padding-left: 1.2rem; display: grid; gap: 0.5rem; max-width: var(--measure); }
+.quote-list { margin: 0; padding: 0; list-style: none; display: grid; gap: 0.75rem; max-width: var(--measure); }
+.quote-list li { padding-left: 1rem; border-left: 2px solid var(--rule); font-style: italic; }
+
+.file-link { font-weight: 700; }
+
+/* Previous / next links at the bottom of each case study */
+.case-nav { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1rem; padding-top: 1.5rem; border-top: 1px solid var(--rule); }
 
 /* ---------- About ---------- */
 

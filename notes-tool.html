@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>ScholarFlow | H. J. (Cindy) Lim</title>
+  <meta name="description" content="Case study: discovery research, a Figma prototype and usability testing for an AI-supported research notes tool.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=IBM+Plex+Mono:wght@400;500&display=swap">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="wrap">
+      <a class="site-name" href="./">H. J. (Cindy) Lim</a>
+      <nav class="site-nav" aria-label="Main">
+        <ul>
+          <li><a href="./">Work</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="resume.pdf">Résumé (PDF)</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <div class="wrap page">
+
+      <section class="case-head" aria-labelledby="case-title">
+        <p class="back"><a href="./">← All work</a></p>
+        <p class="label">Case study · Design thinking and user research</p>
+        <h1 id="case-title">ScholarFlow</h1>
+        <p class="lead">A team design-thinking project on how graduate researchers take notes and manage sources. It ended in a Figma prototype that we tested with three doctoral students.</p>
+
+        <dl class="spec">
+          <div><dt class="label">Users</dt><dd>Graduate students and researchers who juggle sources and notes across many tools</dd></div>
+          <div><dt class="label">Process</dt><dd>Design Thinking for Educators, run as a shared Miro board from challenge to feedback</dd></div>
+          <div><dt class="label">My role</dt><dd>Discovery interviews, usability test sessions and follow-up interviews. Helped design the prototype in Google Stitch and tested it in Figma.</dd></div>
+          <div><dt class="label">Tools</dt><dd>Miro, Google Stitch, Figma, Microsoft Teams</dd></div>
+          <div><dt class="label">Context</dt><dd>Team project, EDUC 6030 Advanced Learning Environments Design, Iowa State University</dd></div>
+          <div><dt class="label">Year</dt><dd>Spring 2026</dd></div>
+        </dl>
+      </section>
+
+      <section class="section" aria-labelledby="challenge-title">
+        <h2 id="challenge-title">The challenge</h2>
+        <div class="prose">
+          <p>Researchers keep notes in paper notebooks, Word, Google Docs, PDF annotators, Zotero and a growing set of AI tools. None of these brings reading, notes and citations together, and many researchers worry about how AI tools handle their data and whether using them is ethical.</p>
+          <p>We set out to understand how researchers actually work before designing anything.</p>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="discovery-title">
+        <h2 id="discovery-title">Discovery: what researchers told us</h2>
+        <p>I interviewed and observed doctoral students in education technology and applied linguistics. We turned what we heard into point-of-view statements. These came up most:</p>
+        <ul class="bullets">
+          <li>Ideas are hard to connect across papers and projects, and notes get buried or lost over time.</li>
+          <li>Moving notes between reading, writing and reference tools takes time and attention.</li>
+          <li>Some researchers think best on paper, with printed articles, color-coded highlighters and handwritten notes, and want a way to bring that work into digital tools.</li>
+          <li>Writing AI prompts in a second language can cause misunderstandings and mental overload, so tools shouldn't depend on complex prompts.</li>
+          <li>Multilingual scholars want language support built in.</li>
+          <li>Researchers need clear guarantees about data security before they trust an AI tool with their work.</li>
+        </ul>
+        <aside class="todo" aria-label="To do">
+          <p class="label">To do before publishing</p>
+          <ul>
+            <li>Confirm how many interviews and observations you ran, and add the number above.</li>
+          </ul>
+        </aside>
+      </section>
+
+      <section class="section" aria-labelledby="concept-title">
+        <h2 id="concept-title">From insights to a concept</h2>
+        <p>We turned the insights into "How might we" questions and voted on them. Three that shaped the concept:</p>
+        <ul class="quote-list">
+          <li>How might we help users who prefer to take notes on paper transition to digital note-taking?</li>
+          <li>How might we provide tools to help non-native English speakers?</li>
+          <li>How might we help scholars tell apart the sources they have used and those they haven't in complex lists?</li>
+        </ul>
+        <p>The concept became ScholarFlow, a web app for research projects. Researchers search with keywords, prompts or an uploaded paper and get results with AI summaries and quality flags, such as a seminal paper or a predatory journal. They save the sources they want to a library with a spreadsheet view.</p>
+        <figure class="screen">
+          <img src="images/scholarflow-flow.jpg" width="1400" height="519" alt="Flowchart: Enter your research area in the search box. The tool lists relevant articles with AI evaluation and summary. Save to library? Yes leads to Save, in a spreadsheet view where each item can be expanded. No leads to Don't save.">
+          <figcaption>The core search-and-save flow.</figcaption>
+        </figure>
+      </section>
+
+      <section class="section" aria-labelledby="prototype-title">
+        <h2 id="prototype-title">Prototype</h2>
+        <p>We generated first screens with Google Stitch and refined them in Figma. The dashboard puts the most common actions up front: create a project, upload a source, chat with AI or dictate a note.</p>
+        <div class="screens">
+          <figure class="screen">
+            <img src="images/scholarflow-dashboard.jpg" width="1400" height="1048" alt="ScholarFlow dashboard with a left menu (Dashboard, Library, Projects, Insights, Groups, Settings), four quick actions (Create Project, Upload Source, AI Chat, Dictate Note), recent projects, groups and recent insights.">
+            <figcaption>Dashboard with quick actions.</figcaption>
+          </figure>
+          <figure class="screen">
+            <img src="images/scholarflow-projects.jpg" width="1400" height="1062" alt="ScholarFlow All Projects screen: a grid of project cards with counts of sources and notes, filters for Active, Shared and Archived, and a search box.">
+            <figcaption>All projects, with filters for active, shared and archived work.</figcaption>
+          </figure>
+        </div>
+        <aside class="todo" aria-label="To do">
+          <p class="label">To do before publishing</p>
+          <ul>
+            <li>Replace these early screens with screenshots of the final Figma prototype, or add a link to it if it's shareable.</li>
+          </ul>
+        </aside>
+      </section>
+
+      <section class="section" aria-labelledby="testing-title">
+        <h2 id="testing-title">Usability testing</h2>
+        <div class="prose">
+          <p>I ran moderated sessions over Microsoft Teams with three doctoral students in education technology, civil engineering and applied linguistics. One had taken part in discovery and two were new. Participants explored each screen and thought aloud, then answered follow-up interview questions.</p>
+          <p>We tested whether ScholarFlow would improve their research workflow, make the process easier, feel intuitive and support accessibility.</p>
+        </div>
+        <h3>What I learned as a moderator</h3>
+        <div class="trio">
+          <div>
+            <p class="label">Keep</p>
+            <ul>
+              <li>Asking participants to interpret a screen before explaining it</li>
+              <li>Restating their words to confirm what they meant</li>
+              <li>Following tangents they raised on their own</li>
+            </ul>
+          </div>
+          <div>
+            <p class="label">Do more</p>
+            <ul>
+              <li>Asking how often they would use a feature</li>
+              <li>Digging into moments when they weren't sure what to do</li>
+              <li>Asking them to rank the features they liked</li>
+            </ul>
+          </div>
+          <div>
+            <p class="label">Stop</p>
+            <ul>
+              <li>Asking abstract questions about ethics in the middle of a task</li>
+              <li>Explaining a feature before the participant finished reacting to it</li>
+            </ul>
+          </div>
+        </div>
+        <aside class="todo" aria-label="To do">
+          <p class="label">To do before publishing</p>
+          <ul>
+            <li>Add what participants found and what the team changed as a result. The Miro board has the test plan but no findings.</li>
+            <li>Confirm the moderator notes above are yours, or reword them as the team's.</li>
+          </ul>
+        </aside>
+      </section>
+
+      <nav class="case-nav" aria-label="Case studies">
+        <a href="ai-module.html">← AI Use in College Composition</a>
+        <a href="drops-evaluation.html">Evaluating Drops →</a>
+      </nav>
+
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <address>
+        <span>Email: <a href="mailto:hjcindylim@gmail.com">hjcindylim@gmail.com</a></span>
+        <span>LinkedIn: <a href="https://www.linkedin.com/in/hj-cindylim">linkedin.com/in/hj-cindylim</a></span>
+      </address>
+      <p>© 2026 H. J. (Cindy) Lim</p>
+    </div>
+  </footer>
+</body>
+</html>
